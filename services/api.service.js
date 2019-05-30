@@ -11,16 +11,22 @@ module.exports = {
 		port: process.env.PORT || 3000,
 
 		routes: [{
-			path: "/api",
-			whitelist: [
-				// Access to any actions in all services under "/api" URL
-				"**"
-			]
+			path: "",
+			aliases:{
+				"REST /customer":"customer",
+				"REST /sms":"sms"
+			}
 		}],
 
 		// Serve assets from "public" folder
 		assets: {
 			folder: "public"
-		}
+		},
+		 // Global error handler
+		 onError(req, res, err) {
+            res.setHeader("Content-Type", "text/plain");
+            res.writeHead(501);
+            res.end("Global error: " + err.message);
+        }
 	}
 };

@@ -30,6 +30,9 @@ module.exports = {
 	// Custom object & array printer for built-in console logger.
 	logObjectPrinter: null,
 
+	// Define a cacher. More info: https://moleculer.services/docs/0.13/caching.html
+	cacher: "Memory",
+
 	// Define a serializer. 
 	// Available values: "JSON", "Avro", "ProtoBuf", "MsgPack", "Notepack", "Thrift". 
 	// More info: https://moleculer.services/docs/0.13/networking.html
